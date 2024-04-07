@@ -31,6 +31,8 @@ jobs:
         uses: mxschmitt/action-tmate@v3
       - run: go test -race -p=8 -parallel=8 -tags=example -coverpkg ./... -coverprofile=coverage.out ./...
       - uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   compatibility:
     runs-on: ubuntu-latest
